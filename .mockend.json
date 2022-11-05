@@ -1,33 +1,8 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
-  "todos": [
-    {
-      "id": 1,
-      "name": "blabla"
-    },
-    {
-      "name": "sfgsdfg",
-      "id": 2
-    },
-    {
-      "name": "dfghjukgjkg",
-      "id": 3
-    }
-  ]
+  "name": {
+    "string": [
+      "Thor",
+      "Loki"
+    ]
+  }
 }
