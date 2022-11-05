@@ -3,4 +3,6 @@
 
 npm run stylelint:fix
 npm run eslint:fix
+npm run test:unit
 git add .
+git push -u origin main
