@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1 class="title">Тест</h1>
     <div class="wrapper">
       <h1 class="title">ПОЛЬЗОВАТЕЛИ</h1>
       <div class="card" v-for="user in users" :key="user.id">
