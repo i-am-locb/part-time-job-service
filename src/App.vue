@@ -1,22 +1,20 @@
 <template>
   <div id="app">
-    <div v-for="post in posts" :key="post.id">
-      <p>ID: {{post.id}} </p><br>
-      <p>Title: {{post.title}} </p><br>
-      <p>Author: {{post.author}} </p><br>
+    <div class="wrapper">
+      <h1 class="title">ПОЛЬЗОВАТЕЛИ</h1>
+      <div class="card" v-for="user in users" :key="user.id">
+        <span>ID: {{user.id}}</span><br>
+        <span>Name: {{user.name}}</span>
+      </div>
     </div>
-    <div v-for="comment in comments" :key="comment.id">
-      <p>ID: {{comment.id}} </p><br>
-      <p>Body: {{comment.body}} </p><br>
-      <p>PostId: {{comment.postId}} </p><br>
-    </div>
-    <p>Name {{profile.name}}</p>
-    <div>
-      <input type="text" v-model="todoName" @keyup.enter="addTodo">
-      <ul>
-        <li v-for="todo, index in todos" :key="index"> {{todo}} </li>
-      </ul>
-    </div>
+    <div class="wrapper">
+      <h1 class="title">Склады</h1>
+      <div class="card" v-for="warehouse in warehouses" :key="warehouse.id">
+        <span>ID: {{warehouse.id}}</span><br>
+        <span>Company: {{warehouse.company}}</span><br>
+        <span>Address: {{warehouse.address}}</span><br>
+        <span>IsActive: {{warehouse.isActive}}</span>
+      </div></div>
   </div>
 </template>
 
@@ -29,47 +27,67 @@ export default {
   },
   data () {
     return {
-      posts: [],
-      comments: [],
-      profile: [],
-      todos: [],
-      todoName: ''
+      warehouses: [],
+      users: []
     }
   },
   async created () {
     try {
-      const posts = await axios.get('http://localhost:3000/posts')
-      const comments = await axios.get('http://localhost:3000/comments')
-      const profile = await axios.get('http://localhost:3000/profile')
-      const todos = await axios.get('http://localhost:3000/todos')
-      this.posts = posts.data
-      this.comments = comments.data
-      this.profile = profile.data
-      this.todos = todos.data
+      const warehouses = await axios.get('https://i-am-locb.github.io/jsonapi/warehouses.json')
+      const users = await axios.get('https://i-am-locb.github.io/jsonapi/users.json')
+      this.warehouses = warehouses.data
+      this.users = users.data
     } catch (e) {
       console.error(e)
     }
   },
   methods: {
-    async addTodo () {
-      const res = await axios.post('http://localhost:3000/todos', { name: this.todoName })
-      this.todos = [...this.todos, res.data]
-      this.todoName = ''
-    }
+
   }
 }
 </script>
 
 <style>
 #app {
-  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
-  text-align: center;
+  box-sizing: border-box;
+
+  width: 100vw;
 
   color: #2c3e50;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+}
+
+.wrapper {
+  display: flex;
+  align-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  width: 40vw;
+
+  border: 1px solid black;
+}
+
+.title {
+  width: 100%;
+
+  text-align: center;
+}
+
+.card {
+  width: 35%;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  border: 1px solid tomato;
 }
 </style>
