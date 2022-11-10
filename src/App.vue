@@ -1,20 +1,25 @@
 <template>
   <div id="app">
-    <h1 class="title">Тест</h1>
     <div class="wrapper">
       <h1 class="title">ПОЛЬЗОВАТЕЛИ</h1>
-      <div class="card" v-for="user in users" :key="user.id">
-        <span>ID: {{user.id}}</span><br>
-        <span>Name: {{user.name}}</span>
+      <div class="card">
+        <span>ID: {{users[0].id}}</span><br>
+        <span>firstName: {{users[0].firstName}}</span><br>
+        <span>secondName: {{users[0].secondName}}</span><br>
+        <span>age: {{users[0].age}}</span><br>
+        <span>balance: {{users[0].balance}}</span><br>
+        <span>birthday: {{users[0].birthday}}</span><br>
+        <span>contactEmail: {{users[0].contactEmail}}</span><br>
+        <span>gender: {{users[0].gender}}</span><br>
+        <span>phoneNumber: {{users[0].phoneNumber}}</span><br>
       </div>
     </div>
     <div class="wrapper">
       <h1 class="title">Склады</h1>
-      <div class="card" v-for="warehouse in warehouses" :key="warehouse.id">
-        <span>ID: {{warehouse.id}}</span><br>
-        <span>Company: {{warehouse.company}}</span><br>
-        <span>Address: {{warehouse.address}}</span><br>
-        <span>IsActive: {{warehouse.isActive}}</span>
+      <div class="card">
+        <span>ID: {{warehouses[0].id}}</span><br>
+        <span>name: {{warehouses[0].name}}</span><br>
+        <span>address: {{warehouses[0].address}}</span><br>
       </div></div>
   </div>
 </template>
